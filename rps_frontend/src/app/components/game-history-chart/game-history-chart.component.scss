@@ -1,0 +1,75 @@
+/* Centering the Table */
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px; /* Add some space around */
+}
+
+/* Table Styling */
+table {
+  width: 80%; /* Limit width */
+  max-width: 800px; /* Prevent it from stretching too much */
+  border-collapse: collapse;
+  margin: 0 auto; /* Center the table */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Header Styling */
+th {
+  background: linear-gradient(135deg, #007BFF, #00D4FF);
+  color: white;
+  padding: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Row Styling */
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+/* Zebra Striping */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover Effect */
+tr:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table {
+    width: 95%; /* Make it wider on small screens */
+  }
+  
+  th, td {
+    padding: 8px;
+  }
+}
+.win {
+  color: #28a745; /* Green */
+  font-weight: bold;
+}
+
+.lose {
+  color: #dc3545; /* Red */
+  font-weight: bold;
+}
+
+.draw {
+  color: #ffc107; /* Yellow */
+  font-weight: bold;
+}

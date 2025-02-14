@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Rock Paper Scissors</h1>
+  
+    <div class="buttons">
+      <button (click)="play('ROCK')">
+        <fa-icon [icon]="faRock"></fa-icon> Rock
+      </button>
+      <button (click)="play('PAPER')">
+        <fa-icon [icon]="faPaper"></fa-icon> Paper
+      </button>
+      <button (click)="play('SCISSORS')">
+        <fa-icon [icon]="faScissors"></fa-icon> Scissors
+      </button>
+    </div>
+  
+    <div class="result">
+      <p>Your Move: 
+        <fa-icon *ngIf="userMove === 'ROCK'" [icon]="faRock"></fa-icon>
+        <fa-icon *ngIf="userMove === 'PAPER'" [icon]="faPaper"></fa-icon>
+        <fa-icon *ngIf="userMove === 'SCISSORS'" [icon]="faScissors"></fa-icon>
+      </p>
+  
+      <p>Computer Move:
+        <fa-icon *ngIf="computerMove === 'ROCK'" [icon]="faRock"></fa-icon>
+        <fa-icon *ngIf="computerMove === 'PAPER'" [icon]="faPaper"></fa-icon>
+        <fa-icon *ngIf="computerMove === 'SCISSORS'" [icon]="faScissors"></fa-icon>
+      </p>
+  
+      <p class="result-text">{{ result }}</p>
+    </div>
+    <app-game-history-chart></app-game-history-chart>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>

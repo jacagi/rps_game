@@ -1,0 +1,18 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>User Move</th>
+        <th>Computer Move</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of gameHistory">
+        <td>{{ game.userMove }}</td>
+        <td>{{ game.computerMove }}</td>
+        <td [ngClass]="getResultClass(game.result)">{{ game.result }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
