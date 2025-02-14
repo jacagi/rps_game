@@ -1,5 +1,5 @@
 {
-  "name": "rps_frontend",
+  "name": "rps-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

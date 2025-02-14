@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rps_frontend": {
+    "rps-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/rps_frontend",
+            "outputPath": "dist/rps-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "rps_frontend:build:production"
+              "buildTarget": "rps-frontend:build:production"
             },
             "development": {
-              "buildTarget": "rps_frontend:build:development"
+              "buildTarget": "rps-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
