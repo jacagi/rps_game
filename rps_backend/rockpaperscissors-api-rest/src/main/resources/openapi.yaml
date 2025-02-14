@@ -1,0 +1,170 @@
+openapi: 3.0.1
+info:
+  title: User API
+  version: 1.0.0
+
+paths:
+  /rps/play:
+    post:
+      summary: Operation to play a rock, paper and scissors game.
+      operationId: playGame
+      requestBody:
+        content:
+          aplication/json:
+            schema:
+              $ref: "#/components/schemas/GameRequest"
+      responses:
+        "200":
+          description: Succesful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameResponse"
+        "400":
+            description: Request contains invalid parameters
+        "401":
+            description: Unauthorized
+        "403":
+            description: Forbidden
+        "404":
+            description: Not Found
+        "500":
+            description: Internal Server Error
+      tags:
+        - game-endpoints
+  /rps/history:
+    post:
+      summary: Operation to get the history of games
+      operationId: getHistory
+      requestBody:
+        content:
+          aplication/json:
+            schema:
+              $ref: "#/components/schemas/HistoryRequest"
+      responses:
+        "200":
+          description: Succesful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: "#/components/schemas/GameResponse"
+        "400":
+            description: Request contains invalid parameters
+        "401":
+            description: Unauthorized
+        "403":
+            description: Forbidden
+        "404":
+            description: Not Found
+        "500":
+            description: Internal Server Error
+      tags:
+        - game-endpoints
+  /auth/register:
+    post:
+      summary: Registration endpoint
+      operationId: register
+      requestBody:
+        content:
+          aplication/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Succesful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegisterResponse"
+        "400":
+            description: Request contains invalid parameters
+        "401":
+            description: Unauthorized
+        "403":
+            description: Forbidden
+        "404":
+            description: Not Found
+        "500":
+            description: Internal Server Error
+      tags:
+        - auth-endpoints
+  /auth/login:
+    post:
+      summary: Login endpoint
+      operationId: login
+      requestBody:
+        content:
+          aplication/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Succesful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+        "400":
+            description: Request contains invalid parameters
+        "401":
+            description: Unauthorized
+        "403":
+            description: Forbidden
+        "404":
+            description: Not Found
+        "500":
+            description: Internal Server Error
+      tags:
+        - auth-endpoints
+components:
+  schemas:
+    GameRequest:
+      type: object
+      properties:
+        userMove:
+          type: string
+    HistoryRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        gamesNum:
+          type: integer
+          format: int32
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        status:
+          type: string
+    RegisterResponse:
+      type: object
+      properties:
+        status:
+          type: string
+    GameResponse:
+      type: object
+      properties:
+        userMove:
+          type: string
+        computerMove:
+          type: string
+        result:
+          type: string
+tags:
+    -
+        name: game-endpoints
+        description: Game related endpoints
+    -
+        name: auth-endpoints
+        description: Auth related endpoints
