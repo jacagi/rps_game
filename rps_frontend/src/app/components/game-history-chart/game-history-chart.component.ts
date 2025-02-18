@@ -26,6 +26,6 @@ export class GameHistoryComponent implements OnInit {
     if (result.toLowerCase() === 'win') return 'win';
     if (result.toLowerCase() === 'lose') return 'lose';
     if (result.toLowerCase() === 'draw') return 'draw';
-    return ''; // Default class
+    return '';
   }
 }
